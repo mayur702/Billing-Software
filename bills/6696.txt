@@ -1,0 +1,26 @@
+	 Welcome Mayur Kirana Store
+ Bill Number:6696
+ Customer Name:tushar thavare
+ Mobile Number:3256589102
+ Customer Email:ksdnsh@hgsh
+==================================================
+ Products			QTY			Price
+==================================================
+ Keshar gold			1			1650
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+ keshari			5			290
+
+ ==================================================
+ Sub Amount:			Rs.4550.00
+ Tax Amount:			Rs.44.92
+ Total Amount:			Rs.4594.92
+==================================================
+
