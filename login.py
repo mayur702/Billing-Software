@@ -17,7 +17,7 @@ root1.title("login page")
 root1.geometry("1520x800")
 root1.state('zoomed')
 
-bg=ImageTk.PhotoImage(file=r"C:\Users\Mayur Magar\Desktop\taj2.0\image\prop4.jpg")
+bg=ImageTk.PhotoImage(file=r"C:\Users\Mayur Magar\Desktop\Mayur Billing software\image\prop4.jpg")
 
 lbl_bg=Label(root1,image=bg)
 lbl_bg.place(x=0,y=0,relwidth=1,relheight=1)
@@ -25,7 +25,7 @@ lbl_bg.place(x=0,y=0,relwidth=1,relheight=1)
 frame=Frame(root1,bg="black",width=340,height=450)
 frame.place(x=450,y=100)
 
-img1=Image.open(r"C:\Users\Mayur Magar\Desktop\taj2.0\image\image312.webp")
+img1=Image.open(r"C:\Users\Mayur Magar\Desktop\Mayur Billing software\image\image312.webp")
 img1=img1.resize((100,100),Image.ANTIALIAS)
 Photoimage1=ImageTk.PhotoImage(img1)
 lblimg1=Label(frame,image=Photoimage1,bg="black",borderwidth=0,width=100,height=100)
@@ -46,13 +46,13 @@ password.place(x=70,y=225)
 txt1=ttk.Entry(frame,font=("times new roman",15,"bold"),show="*")
 txt1.place(x=40,y=250,width=270)
 
-img2=Image.open(r"C:\Users\Mayur Magar\Desktop\taj2.0\image\th.jpg")
+img2=Image.open(r"C:\Users\Mayur Magar\Desktop\Mayur Billing software\image\th.jpg")
 img2=img2.resize((20,20),Image.ANTIALIAS)
 Photoimage2=ImageTk.PhotoImage(img2)
 lblimg2=Label(frame,image=Photoimage2,borderwidth=0,bg="black",width=20,height=20)
 lblimg2.place(x=50,y=158)
 
-img3=Image.open(r"C:\Users\Mayur Magar\Desktop\taj2.0\image\lock.jpg")
+img3=Image.open(r"C:\Users\Mayur Magar\Desktop\Mayur Billing software\image\lock.jpg")
 img3=img3.resize((20,20),Image.ANTIALIAS)
 Photoimage3=ImageTk.PhotoImage(img3)
 lblimg3=Label(frame,image=Photoimage3,borderwidth=0,width=20,height=20)
@@ -60,27 +60,41 @@ lblimg3.place(x=50,y=228)
 
         
 def login():
-   f=txt.get()
-   g=txt1.get()
-   x='m'
-   z='m'
-   if f=="" and g=="":
+  conn=mysql.connector.connect(host='localhost',username='root',password='siit@123',database='mayur')
+  my_curser=conn.cursor()
+  my_curser.execute("select name from magarm where password='"+txt1.get()+"'")
+  
+  v=my_curser.fetchall()
+  for i in v:
+     for j in i:
+        x=j
+  my_curser.execute("select password from magarm where name='"+txt.get()+"'")
+  v=my_curser.fetchall()
+  for i in v:
+     for j1 in i:
+        
+                                              
+         f=txt.get()
+         g=txt1.get()
+         
+         z=j1
+         if f=="" and g=="":
             
             messagebox.showerror("Error","All filed required")
             
-   elif f != x and g != z:
-      messagebox.showerror("Error","Username&Password Invalid ")
-         
-   
+         elif f != x and g != z:
+            messagebox.showerror("Error","Username&Password Invalid ")
                
-   elif f==x and g==z:
-         messagebox.showinfo("Success","Your Login form successfully Submit")
-         call(['python','main.py'])
-         root1.destroy()
-         
-   else:
-      messagebox.showerror("Invalid","Invalid username&Password")
-         
+        
+                     
+         elif f==x and g==z:
+               messagebox.showinfo("Success","Your Login form successfully Submit")
+               call(['python','main1.py'])
+               root1.destroy()
+               
+         else:
+            messagebox.showerror("Invalid","Invalid username&Password")
+               
                
 
 
